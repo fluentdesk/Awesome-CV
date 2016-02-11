@@ -1,78 +1,59 @@
-# Awesome CV [![Example](https://img.shields.io/badge/example-pdf-green.svg)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf)
+# Awesome CV
+*A template-friendly fork of Byungjin Park's [Awesome-CV][awe] resume template.*
 
+This fork replaces each occurrence of hard-coded resume data in the original
+Awesome-CV project with an expandable template tag, allowing you to generate a
+personalized copy of Awesome-CV without hand-editing the `.tex` files.
 
-[**Awesome CV**](https://github.com/posquit0/Awesome-CV) is LaTeX template for a **CV(Curriculum Vitae)**, **Résumé** or **Cover Letter** inspired by [Fancy CV](https://www.sharelatex.com/templates/cv-or-resume/fancy-cv). It is easy to customize your own template, especially since it is really written by a clean, semantic markup.
+Otherwise, it's identical to the original.
 
+## Use
 
-## Table of contents
+When expanded with [Underscore.js][und] and a [FRESH resume][fre] object (JSON),
+this project yields an Awesome-CV template, in LaTeX, but with your resume data.
+You can then use a tool like `xelatex` or similar to generate the final PDF.
 
-* [Preview](#preview)
-* [Quick Start](#quick-start)
-* [How to Use](#how-to-use)
-* [Credit](#credit)
-* [Contact](#contact)
-
-
-## <a name="preview"></a>Preview
-
-#### Résumé
-
-You can see [PDF](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf)
-
-![Résumé(Page 1)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume-0.png)
-![Résumé(Page 2)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume-1.png)
-
-#### Cover Letter
-
-You can see [PDF](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter.pdf)
-
-![Cover Letter(Traditional)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter-0.png)
-![Cover Letter(Awesome)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter-1.png)
-
-
-## <a name="quick-start">Quick Start
-
-* [**Edit Résumé on OverLeaf.com**](https://www.overleaf.com/latex/templates/awesome-cv/tvmzpvdjfqxp)
-* [**Edit Résumé on ShareLaTeX.com**](https://www.sharelatex.com/templates/cv-or-resume/awesome-cv)
-* [**Edit Cover Letter on OverLeaf.com**](https://www.overleaf.com/latex/templates/awesome-cv-cover-letter/pfzzjspkthbk)
-* [**Edit Cover Letter on ShareLaTeX.com**](https://www.sharelatex.com/templates/cover-letters/awesome-cv-cover-letter)
-
-**_Note:_ Above services do not guarantee up-to-date source code of Awesome CV**
-
-
-## <a name="how-to-use">How to Use
-
-#### Requirements
-
-A full TeX distribution is assumed.  [Various distributions for different operating systems (Windows, Mac, \*nix) are available](http://tex.stackexchange.com/q/55437) but TeX Live is recommended.
-You can [install TeX from upstream](http://tex.stackexchange.com/q/1092) (recommended; most up-to-date) or use `sudo apt-get install texlive-full` if you really want that.  (It's generally a few years behind.)
-
-#### Usage
-
-At a command prompt, run
+**Step 1**: Use a FRESH-aware template expansion tool like [HackMyResume][hmr]
+to generate the personalized LaTeX:
 
 ```bash
-$ xelatex {your-cv}.tex
+hackmyresume build resume.json -t awesome
 ```
 
-This should result in the creation of ``{your-cv}.pdf``
+**Step 2**: Use conventional LaTeX tools to generate a PDF or other destination
+format from the (personalized) Awesome-CV LaTeX files:
 
+```bash
+xelatex examples/resume.tex
+```
 
-## <a name="credit">Credit
+**Step 3**: When you need to update your resume, update the source JSON, and
+re-generate destination formats as needed.
 
-[**LaTeX**](http://www.latex-project.org) is a fantastic typesetting program that a lot of people use these days, especially the math and computer science people in academia.
+## Notes
 
-[**LaTeX FontAwesome**](https://github.com/furl/latex-fontawesome) is bindings for FontAwesome icons to be used in XeLaTeX.
+- This project is intermittently synced with the upstream master to get the
+benefit of any new changes or tweaks.
 
-[**Roboto**](https://github.com/google/roboto) is the default font on Android and ChromeOS, and the recommended font for Google’s visual language, Material Design.
+- The template tags are based on the Underscore.js template syntax but with a
+modified set of template delimiters that reduce conflicts with LaTeX
+metacharacters such as `{` or `%`.
 
-[**Source Sans Pro**](https://github.com/adobe-fonts/source-sans-pro) is a set of OpenType fonts that have been designed to work well in user interface (UI) environments.
+- Underscore.js was chosen because its minimalistic template engine supports
+custom delimiters (Handlebars [doesn't][hb350], except [unofficially][un]) and
+allows execution of arbitrary JavaScript in the template.
 
+- This project indirectly drives the `awesome` theme in HackMyResume and
+FluentCV. Technically the latter is a fork of this project, which itself is a
+fork of the original Awesome-CV for LaTeX.
 
-## <a name="contact">Contact
+## License
 
-You are free to take my `.tex` file and modify it to create your own resume. Please don't use my resume for anything else without my permission, though!
+See the original project for license information.
 
-If you have any questions, feel free to join me at [`#posquit0` on Freenode](irc://irc.freenode.net/posquit0) and ask away. Click [here](https://kiwiirc.com/client/irc.freenode.net/posquit0) to connect.
-
-Good luck!
+[awe]: https://github.com/posquit0/Awesome-CV
+[hmr]: http://please.hackmyresume.com
+[fre]: http://freshstandard.org
+[und]: http://underscorejs.org/#template
+[hb350]: https://github.com/wycats/handlebars.js/issues/350
+[un]: https://github.com/jonschlinkert/handlebars-delimiters
