@@ -1,3 +1,4 @@
+[~ if (r.education && r.education.history && r.education.history.length) { ~]
 %-------------------------------------------------------------------------------
 %	SECTION TITLE
 %-------------------------------------------------------------------------------
@@ -8,18 +9,22 @@
 %	CONTENT
 %-------------------------------------------------------------------------------
 \begin{cventries}
-
+[~ _.each( r.education.history, function(edu) { ~]
 %---------------------------------------------------------
   \cventry
-    {B.S. in Computer Science and Engineering} % Degree
-    {POSTECH(Pohang University of Science and Technology)} % Institution
-    {Pohang, S.Korea} % Location
-    {Mar. 2010 - PRESENT} % Date(s)
+    {[[ edu.title ]]} % Degree
+    {[[ edu.institution ]]} % Institution
+    {[[ edu.location ]]} % Location
+    {[~ print( h.dateRange( edu ) ) ~]} % Date(s)
     {
       \begin{cvitems} % Description(s) bullet points
-        \item {Got a Chun Shin-Il Scholarship which is given to promising students in CSE Dept.}
+        [~ _.each( edu.highlights, function(high) { ~]
+        \item {[[ high ]]}
+        [~ }); ~]
       \end{cvitems}
     }
 
+[~ }); ~]
 %---------------------------------------------------------
 \end{cventries}
+[~ } ~]

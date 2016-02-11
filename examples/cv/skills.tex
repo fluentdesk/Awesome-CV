@@ -1,3 +1,5 @@
+[~ if(( r.skills && r.skills.sets && r.skills.sets.length ) ||
+      ( r.languages && r.languages.length ) ) { ~]
 %-------------------------------------------------------------------------------
 %	SECTION TITLE
 %-------------------------------------------------------------------------------
@@ -9,20 +11,24 @@
 %-------------------------------------------------------------------------------
 \begin{cvskills}
 
+[~ if (r.skills && r.skills.sets && r.skills.sets.length ) { ~]
+[~ _.each( r.skills.sets, function(sks) { ~]
 %---------------------------------------------------------
   \cvskill
-    {Programming} % Category
-    {Python, C/C++, Scala, JAVA, Node.JS, OCaml, LaTeX} % Skills
+    {[[ sks.name ]]} % Category
+    {[~ print( sks.skills.join(', ') ) ~]} % Skills
 
-%---------------------------------------------------------
-  \cvskill
-    {Web} % Category
-    {Django with Python, Express with Node.JS, HTML5, LESS} % Skills
+[~ }); ~]
+[~ } ~]
 
+[~ if (r.languages && r.languages.length ) { ~]
 %---------------------------------------------------------
   \cvskill
     {Languages} % Category
-    {Korean, English, Japanese, Chinese} % Skills
+    {[~ print( _.map( r.languages, function(lang) { return lang.language; }).join(', ')) ~]} % Skills
+
+[~ } ~]
 
 %---------------------------------------------------------
 \end{cvskills}
+[~ } ~]

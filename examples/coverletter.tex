@@ -51,22 +51,22 @@
 %	PERSONAL INFORMATION
 %	Comment any of the lines below if they are not required
 %-------------------------------------------------------------------------------
-\name{Claud D.}{Park}
-\position{Software Engineer{\enskip\cdotp\enskip}Security Expert}
-\address{246-1002, Gwangmyeongmayrouge Apt. 86, Cheongna lime-ro, Seo-gu, Incheon-si, 404-180, Rep. of KOREA}
+\name{[~ print(h.initialWords( r.name )) ~]}{[[ h.lastWord( r.name ) ]]}
+\position{[[ r.info.label ]]}
+\address{[[ r.location.address ]]}
 
-\mobile{(+82) 10-9030-1843} 
-\email{posquit0.bj@gmail.com}
-\homepage{www.posquit0.com}
-\github{posquit0}
-\linkedin{posquit0}
+\mobile{[[ r.contact.phone ]]}
+\email{[[ r.contact.email ]]}
+\homepage{[[ r.contact.website ]]}
+[~ if (r.hasProfile('github') { ~]\github{[[ r.getProfile('github').user ]]}[~ } ~]
+[~ if (r.hasProfile('linkedin') { ~]\linkedin{[[ r.getProfile('github').user ]]}[~ } ~]
 % \stackoverflow{SO-id}{SO-name}
 % \twitter{@twit}
 % \skype{skype-id}
 % \reddit{reddit-id}
 % \extrainfo{extra informations}
 
-\quote{``Must be the change that you want to see in the world."}
+[~ if (r.info.quote) { ~]\quote{``[[ r.info.quote ]]"}[~ } ~]
 
 
 %-------------------------------------------------------------------------------
@@ -99,7 +99,7 @@
 % Leave any of these blank if they are not needed
 \makecvfooter
   {\today}
-  {Claud D. Park~~~·~~~Cover Letter}
+  {[[ r.name ]]~~~·~~~Cover Letter}
   {}
 
 % Print the title with above letter informations

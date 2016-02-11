@@ -1,3 +1,4 @@
+[~ if ( r.recognition && r.recognition.length ) { ~]
 %-------------------------------------------------------------------------------
 %	SECTION TITLE
 %-------------------------------------------------------------------------------
@@ -14,35 +15,15 @@
 %	CONTENT
 %-------------------------------------------------------------------------------
 \begin{cvhonors}
-
+[~ _.each( r.recognition, function(rgn) { ~]
 %---------------------------------------------------------
   \cvhonor
-    {Finalist} % Award
-    {DEFCON 22nd CTF Hacking Competition World Final} % Event
-    {Las Vegas, U.S.A} % Location
-    {2014} % Date(s)
+    {[[ rgn.title ]]} % Award
+    {[[ rgn.from ]]} % Event
+    {[[ rgn.location ]]} % Location
+    {[[ rgn.date ]]} % Date(s)
 
-%---------------------------------------------------------
-  \cvhonor
-    {Finalist} % Award
-    {DEFCON 21st CTF Hacking Competition World Final} % Event
-    {Las Vegas, U.S.A} % Location
-    {2013} % Date(s)
-
-%---------------------------------------------------------
-  \cvhonor
-    {Finalist} % Award
-    {DEFCON 19th CTF Hacking Competition World Final} % Event
-    {Las Vegas, U.S.A} % Location
-    {2011} % Date(s)
-
-%---------------------------------------------------------
-  \cvhonor
-    {6th Place} % Award
-    {SECUINSIDE Hacking Competition World Final} % Event
-    {Seoul, S.Korea} % Location
-    {2012} % Date(s)
-
+[~ }); ~]
 %---------------------------------------------------------
 \end{cvhonors}
 
@@ -57,55 +38,15 @@
 %	CONTENT
 %-------------------------------------------------------------------------------
 \begin{cvhonors}
-
+[~ _.each( r.recognition, function(rgn) { ~]
 %---------------------------------------------------------
   \cvhonor
-    {3rd Place} % Award
-    {WITHCON Hacking Competition Final} % Event
-    {Seoul, S.Korea} % Location
-    {2015} % Date(s)
+  {[[ rgn.title ]]} % Award
+  {[[ rgn.from ]]} % Event
+  {[[ rgn.location ]]} % Location
+  {[[ rgn.date ]]} % Date(s)
 
-%---------------------------------------------------------
-  \cvhonor
-    {Silver Prize} % Award
-    {KISA HDCON Hacking Competition Final} % Event
-    {Seoul, S.Korea} % Location
-    {2013} % Date(s)
-
-%---------------------------------------------------------
-  \cvhonor
-    {2nd Award} % Award
-    {HUST Hacking Festival} % Event
-    {S.Korea} % Location
-    {2013} % Date(s)
-
-%---------------------------------------------------------
-  \cvhonor
-    {3rd Award} % Award
-    {HUST Hacking Festival} % Event
-    {S.Korea} % Location
-    {2010} % Date(s)
-
-%---------------------------------------------------------
-  \cvhonor
-    {3rd Award} % Award
-    {Holyshield 3rd Hacking Festival} % Event
-    {S.Korea} % Location
-    {2012} % Date(s)
-
-%---------------------------------------------------------
-  \cvhonor
-    {2nd Award} % Award
-    {Holyshield 3rd Hacking Festival} % Event
-    {S.Korea} % Location
-    {2011} % Date(s)
-
-%---------------------------------------------------------
-  \cvhonor
-    {5th Place} % Award
-    {PADOCON Hacking Competition Final} % Event
-    {Seoul, S.Korea} % Location
-    {2011} % Date(s)
-
+[~ }); ~]
 %---------------------------------------------------------
 \end{cvhonors}
+[~ } ~]
